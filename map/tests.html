@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+	<title>World Countries Tests</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+	<h3>World Countries Data Tests</h3>
+	<script>
+
+	// data check, checking our utilities
+
+	d3.loadData = function() {
+    // Source: http://bl.ocks.org/ilyabo/2209220
+    // To simultaneously loading multiple datasets
+
+    var loadedCallback = null;
+    var toload = {};
+    var data = {};
+    var loaded = function(name, d) {
+      delete toload[name];
+      data[name] = d;
+      return notifyIfAll();
+    };
+    var notifyIfAll = function() {
+      if ((loadedCallback != null) && d3.keys(toload).length === 0) {
+        loadedCallback(data);
+      }
+    };
+    var loader = {
+      json: function(name, url) {
+        toload[name] = url;
+        d3.json(url, function(d) {
+          return loaded(name, d);
+        });
+        return loader;
+      },
+      csv: function(name, url) {
+        toload[name] = url;
+        d3.csv(url, function(d) {
+          return loaded(name, d);
+        });
+        return loader;
+      },
+      onload: function(callback) {
+        loadedCallback = callback;
+        notifyIfAll();
+      }
+    };
+    return loader;
+  };
+
+  Array.prototype.equijoin || (Array.prototype.equijoin = 
+		function(source,options) {
+			// add the contents in source to destination (copy of this) where
+			// source.(options.sourceKey) = destination.(options.destKey)
+			// first match only is used
+
+			// when adding properties to destination from source,
+			// if destination already has that property, prefix is
+			// added to property's name. if dest already has property prefix+name,
+			// it is overwritten
+
+			// if within is specified, the contents of source will be added
+			// to the property within on destination and not to destination itself
+
+			// runs O(n^2) ~ improvements?
+
+			var sourceKey = (options||{}).sourceKey || "id";
+			var destKey = (options||{}).destKey || "id";
+			var prefix = (options||{}).prefix || "_";
+			var within = (options||{}).within;
+
+			var results = [];
+
+			for ( var i = 0; i < this.length; i++ ) {
+				var combination = {};
+				var subgroup = {};
+				var target;
+				var pair;
+					
+				// always copy this into combined object
+				for ( prop in this[i] ) {
+					if ( this[i].hasOwnProperty(prop) ) {
+						combination[prop] = this[i][prop];
+					}
+				}
+
+				// if this has no property for destKey, don't look for a join
+				if ( typeof this[i][destKey] === 'undefined') {
+					results.push(combination);
+					continue;
+				}
+
+				// if we are grouping the source properties under an attribute
+				if ( within ) target = subgroup;
+				else target = combination;
+
+				// copy source into combined object if we found one
+				pair = source.objectWithProperty(sourceKey,this[i][destKey]);
+				if ( typeof pair !== 'undefined' ) {
+					for ( prop in pair ) {
+						if ( pair.hasOwnProperty(prop) ) {
+							if ( prop == sourceKey ) {
+								; // continue
+							} else if ( target.hasOwnProperty(prop) ) {
+								target[prefix+prop] = pair[prop];
+							} else {
+								target[prop] = pair[prop];
+							}
+						}
+					}
+				}
+
+				// adjoin the subgroup if instructed, but only if not empty, otherwise
+				// leave undefined. yes yes, factor or use underscore
+				if ( within ) {
+					var empty = true;
+					for (var key in target ) { if (target.hasOwnProperty(key)) { empty = false; break; } }
+					if (!empty) combination[within] = target;
+				}
+
+				results.push(combination);
+			}
+			return results;
+		});
+
+	Array.prototype.objectWithProperty || (Array.prototype.objectWithProperty =
+		function(property,value) {
+			var result = undefined;
+			for ( var i = 0; i < this.length; i++ ) {
+				if ( this[i][property] == value ) {
+					result = this[i];
+					break;
+				}
+			}
+			return result;
+		});
+
+
+	function objectify(list, values) {
+		// Source: http://underscorejs.org/
+		
+		// Converts lists into objects. Pass either a single array of [key, value]
+		// pairs, or two parallel arrays of the same length -- one of keys, 
+		// and one of the corresponding values.
+
+    if (list == null) return {};
+    var result = {};
+    for (var i = 0, l = list.length; i < l; i++) {
+      if (values) {
+        result[list[i]] = values[i];
+      } else {
+        result[list[i][0]] = list[i][1];
+      }
+    }
+    return result;
+  };
+
+  function makeRange(from,to) {
+  	// Generate a range of numbers inclusive
+  	var r = new Array();
+  	for ( var i = from; i <= to; i++ ) {
+  		r.push(i);
+  	}
+  	return r;
+  }
+
+  d3.loadData()
+    .json('countries', 'world-countries.json')
+    .csv('codes', 'country-codes.csv')
+    .csv('gdp', 'world-gdp-growth.csv')
+    .onload(function(thegoods) {
+    	var data = thegoods;
+
+    	var features = data.countries.features;
+    	var combinedData = features.equijoin(data.codes, {
+    		sourceKey: '2code',
+				destKey: 'id'
+    	}).equijoin(data.gdp, {
+    		sourceKey: 'Country Code',
+    		destKey: '3code',
+    		within: 'gdp'
+    	});
+
+    	var iso3codes = combinedData.map(function(d){return d['3code'];});
+    	var gdps = combinedData.map(function(d){return d.gdp;});
+
+    	console.log(data, features.length);
+    	console.log(combinedData, combinedData.length);
+    	//console.log(iso3codes.length);
+    	//console.log(gdps);
+
+    	console.log("running tests");
+
+    	if ( features.length != combinedData.length ) 
+    		console.log("combinedData.length should equal features.length");
+			else console.log(".");
+
+			if ( features.length != iso3codes.length )
+				console.log("iso3codes.length should equal features.length");
+			else console.log(".");
+
+			if ( features.length != gdps.length )
+				console.log("gdps.length should equal features.length");
+			else console.log(".");
+
+   	});
+   </script>
+</body>
+</html>
