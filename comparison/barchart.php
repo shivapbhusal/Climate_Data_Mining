@@ -2,19 +2,18 @@
 <html>
 <head>
 	
-	<title>Comparison Bar Charts</title>
+    <title>Comparison Bar Charts</title>
 	
 	<link href="../css/bootstrap-combined.css" rel="stylesheet">
-
-	<link href="../graph/select2-bootstrap.css" rel="stylesheet">
+	<link href="../css/select2-bootstrap.css" rel="stylesheet">
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
-
-	<link href="../graph/select2.css" rel="stylesheet">
+	<link href="../css/select2.css" rel="stylesheet">
 	<script src="../js/jquery-1.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/underscore-min.js"></script>
-	<script src="../graph/select2.js"></script>
-	 <link rel="stylesheet" href="../css/main.css">
+	<script src="../js/select2.js"></script>
+    <script src="../js/jsapi.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
 
 	
@@ -41,7 +40,6 @@
 }
 	</style>
 	
-<script type="text/javascript" src="include/jsapi"></script>
     
     <script type="text/javascript">
   // Load the Visualization API and the piechart package.

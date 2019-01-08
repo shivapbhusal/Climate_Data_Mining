@@ -3,20 +3,18 @@
 <head>
 	
 	<title>Readiness Index (1995-2011)</title>
-	
 	<link href="../css/bootstrap-combined.css" rel="stylesheet">
-	<script src="js/jquery-1.js"></script>
-
+	<script src="../js/jquery-1.js"></script>
 	<link href="../graph/select2-bootstrap.css" rel="stylesheet">
-	<script src="js/bootstrap.js"></script>
-	<script src="js/underscore-min.js"></script>
-	<script src="js/d3.js"></script>
-		<link href="../graph/select2.css" rel="stylesheet">
-	 <link rel="stylesheet" href="../css/main.css">
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/underscore-min.js"></script>
+	<script src="../js/d3.js"></script>
+	<link href="../css/select2.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
-<script src="../graph/select2.js"></script>
-	<script type="text/javascript" src="prettify/prettify.js"></script>
-	<link href="prettify/prettify.css" rel="stylesheet" type="text/css" />
+	<script src="../js/select2.js"></script>
+	<script type="text/javascript" src="../js/prettify.js"></script>
+	<link href="../css/prettify.css" rel="stylesheet" type="text/css" />
 
 	<style>
 		body {
@@ -833,9 +831,9 @@ document.getElementById("chart").innerHTML = "";
 								.attr('x',lc+120)
 								.attr('y',ly+9)
 								.text('n/a');
-						$('.i-country').text("0.6-0.8 : Highly Ready");			
+							$('.i-country').text("0.6-0.8 : Highly Ready");			
 							$('.i-country-gdp').text("0.6-0.4: MOderate Ready");
-							$('.i-country-mean').text("0.6-0.8 : Least Ready");
+							$('.i-country-mean').text("0.4-0 : Least Ready");
 					 	// prep typeahead for country search
 					 	
 					 	$('.search-query').typeahead({

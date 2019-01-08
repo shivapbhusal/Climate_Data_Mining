@@ -5,18 +5,18 @@
 	<title> Vulnearbility Indices (1995-2011)</title>
 	
 	<link href="../css/bootstrap-combined.css" rel="stylesheet">
-	<script src="js/jquery-1.js"></script>
+	<script src="../js/jquery-1.js"></script>
 
-	<link href="../graph/select2-bootstrap.css" rel="stylesheet">
-	<script src="js/bootstrap.js"></script>
-	<script src="js/underscore-min.js"></script>
-	<script src="js/d3.js"></script>
-		<link href="../graph/select2.css" rel="stylesheet">
-	 <link rel="stylesheet" href="../css/main.css">
+	<link href="../css/select2-bootstrap.css" rel="stylesheet">
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/underscore-min.js"></script>
+	<script src="../js/d3.js"></script>
+	<link href="../css/select2.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
-<script src="../graph/select2.js"></script>
-	<script type="text/javascript" src="prettify/prettify.js"></script>
-	<link href="prettify/prettify.css" rel="stylesheet" type="text/css" />
+	<script src="../js/select2.js"></script>
+	<script type="text/javascript" src="../js/prettify.js"></script>
+	<link href="../css/prettify.css" rel="stylesheet" type="text/css" />
 
 	<style>
 		body {
@@ -786,7 +786,7 @@ document.getElementById("chart").innerHTML = "";
 
 						// the legend
 
-						var growthPoints = makeRange(-6,6);
+						var growthPoints = makeRange(-5,5);
 						var ly = h-timelineYMargin-30; // 30
 						var lc = 750;
 
@@ -804,7 +804,7 @@ document.getElementById("chart").innerHTML = "";
 								.data(growthPoints)
 								.enter().append('rect')
 									.attr('x',function(d) { return lc + d*10; })
-									.attr('fill',function(d) { return color(d+20); })
+									.attr('fill',function(d) {return color(d*20+20) })
 									.attr('y',ly)
 									.attr('width',9)
 									.attr('height',10);
@@ -818,7 +818,7 @@ document.getElementById("chart").innerHTML = "";
 								.attr('y',ly+9)
 								.attr('text-anchor','end')
 								.style('font-size','0.9em')
-								.text(' 0');
+								.text('0');
 						legend.append('text')
 								.attr('x',lc+75)
 								.attr('y',ly+9)
@@ -836,10 +836,11 @@ document.getElementById("chart").innerHTML = "";
 								.attr('y',ly+9)
 								.text('n/a');
 
-							$('.i-country').text("0.2-0.4 : High Vulnerable");			
-							$('.i-country-gdp').text("0.4-0.6: MOderate Vulnerable");
-							$('.i-country-mean').text("0.6-0.8 : Least Vulnerable");
-							;
+							$('.i-country').text("20-40 : High Vulnerable");
+							$('.i-country-gdp').text("40-60: MOderate Vulnerable");
+							$('.i-country-mean').text("60-80 : Least Vulnerable")
+							
+
 					 	// prep typeahead for country search
 					 	
 					 	$('.search-query').typeahead({

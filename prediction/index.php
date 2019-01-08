@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Prediction</title>
-		<script src="include/jquery.min.js"></script>
-		<script src="include/jquery.flot.js"></script>
-		<script src="include/regression.js"></script>
+        <title>Prediction</title>
+        
+        <script src="../js/jquery.min.js"></script>
+		<script src="../js/jquery.flot.js"></script>
+		<script src="../js/regression.js"></script>
 		<link href="../css/bootstrap-combined.css" rel="stylesheet">
-		<link href="../graph/select2-bootstrap.css" rel="stylesheet">
+		<link href="../css/select2-bootstrap.css" rel="stylesheet">
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
-		<link href="../graph/select2.css" rel="stylesheet">
+		<link href="../css/select2.css" rel="stylesheet">
 		<script src="../js/bootstrap.js"></script>
 		<script src="../js/underscore-min.js"></script>
-		<script src="../graph/select2.js"></script>
+		<script src="../js/select2.js"></script>
 	 	<link rel="stylesheet" href="../css/main.css">
 		<link rel="stylesheet" href="../css/font-awesome.min.css">
+
+	
 
 	
 	<style>

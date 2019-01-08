@@ -1,19 +1,18 @@
 <!doctype html>
 <html>
-<head>
-	
-	<link href="../css/bootstrap-combined.css" rel="stylesheet">
-
-  <link href="select2-bootstrap.css" rel="stylesheet">
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-  <link href="select2.css" rel="stylesheet">
-  <script src="../js/jquery-1.js"></script>
-  <script src="../js/bootstrap.js"></script>
-  <script src="../js/underscore-min.js"></script>
-  <script src="select2.js"></script>
-   <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <head>
+        
+        <link href="../css/bootstrap-combined.css" rel="stylesheet">
+        <link href="../css/select2-bootstrap.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/select2.css" rel="stylesheet">
+        <script src="../js/jquery-1.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/underscore-min.js"></script>
+        <script src="../js/select2.js"></script>
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <script type="text/javascript" src="../js/jsapi.js"></script>
 
 	<style>
 		body {
@@ -38,7 +37,6 @@
 }
 	</style>
 	
-<script type="text/javascript" src="include/jsapi"></script>
     
     
     <script type="text/javascript">

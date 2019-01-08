@@ -1,7 +1,7 @@
 <html>
 
-<script type="text/javascript" src="include/jsapi"></script>
-    <script type="text/javascript" src="include/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jsapi.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript">
   // Load the Visualization API and the piechart package.
   google.load('visualization', '1', {'packages':['corechart']});

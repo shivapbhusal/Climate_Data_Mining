@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>ND gain Readiness</title>
-  
+
   <link href="../css/bootstrap-combined.css" rel="stylesheet">
-
-  <link href="select2-bootstrap.css" rel="stylesheet">
+  <link href="../css/select2-bootstrap.css" rel="stylesheet">
   <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-  <link href="select2.css" rel="stylesheet">
+  <link href="../css/select2.css" rel="stylesheet">
   <script src="../js/jquery-1.js"></script>
   <script src="../js/bootstrap.js"></script>
   <script src="../js/underscore-min.js"></script>
-  <script src="select2.js"></script>
-   <link rel="stylesheet" href="../css/main.css">
+  <script src="../js/select2.js"></script>
+  <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/font-awesome.min.css">
+  <script src="../js/d3.v3.js"></script>
+  <script src="../js/simple_statistics.js"></script>
 
 <style>
 body {
@@ -114,7 +114,7 @@ body {
                             <ul class="dropdown-menu">
                                 <li><a href="../regression/carbon_vs_vulindex.php">Carbon VS ND GAin Index</a></li>
                                 <li><a href="../regression/gain_vs_read.php">ND Gain VS Readiness </a></li>
-                                <li><a href="../regression/gain_vs_vul.php" target ="blank">ND Gain VS Vulnerability </a></li>
+                                <li><a href="../regression/gain_vs_vul.php">ND Gain VS Vulnerability </a></li>
                             </ul>
                         </li>
 
@@ -197,8 +197,6 @@ body {
 </form></center>
 
 </form>
-<script src="include/d3.v3.js"></script>
-<script src="include/simple_statistics.js"></script>
 <script>
 displayGraph();
 function displayGraph(){
