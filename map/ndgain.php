@@ -763,7 +763,7 @@ document.getElementById("chart").innerHTML = "";
 						    .attr("x2", 0)
 						    .attr("y2", h);
 
-						locator.append('svg:line')
+					/* 	locator.append('svg:line')
 								.attr('transform','translate(0,-10)')
 								.style("stroke-dasharray", ("3, 3"))
 								.attr('class','y-loc')
@@ -822,11 +822,11 @@ document.getElementById("chart").innerHTML = "";
 						legend.append('text')
 								.attr('x',lc+120)
 								.attr('y',ly+9)
-								.text('n/a');
+								.text('n/a'); */
 
 							$('.i-country').text("20-40 : High Vulnerable");
 							$('.i-country-gdp').text("40-60: Moderate Vulnerable");
-							$('.i-country-mean').text("60-80 : Least Vulnerable")
+							$('.i-country-mean').text("60-80 : Least Vulnerable");
 							
 
 					 	// prep typeahead for country search

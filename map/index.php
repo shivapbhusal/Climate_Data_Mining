@@ -790,7 +790,7 @@ document.getElementById("chart").innerHTML = "";
 						var ly = h-timelineYMargin-30; // 30
 						var lc = 750;
 
-						legend = g.append('g') // svg
+						/* legend = g.append('g') // svg
 								.attr('class','legend');
 
 						legend.append('rect')
@@ -834,11 +834,11 @@ document.getElementById("chart").innerHTML = "";
 						legend.append('text')
 								.attr('x',lc+120)
 								.attr('y',ly+9)
-								.text('n/a');
+								.text('n/a'); */
 
-							$('.i-country').text("20-40 : High Vulnerable");
-							$('.i-country-gdp').text("40-60: MOderate Vulnerable");
-							$('.i-country-mean').text("60-80 : Least Vulnerable")
+						$('.i-country').text("0.6-0.8 : Highly Vulnerable");
+						$('.i-country-gdp').text("0.4-0.2: MOderate Vulnerable");
+						$('.i-country-mean').text("0.2-0 : Least Vulnerable");
 							
 
 					 	// prep typeahead for country search
@@ -858,7 +858,7 @@ document.getElementById("chart").innerHTML = "";
 
 						// but lets show some instructions, shall we?
 
-						$('.i-country-gdp').text($('#instructions').text());
+						//$('.i-country-gdp').text($('#instructions').text());
 					 	
 				}); // end d3.loadData
 

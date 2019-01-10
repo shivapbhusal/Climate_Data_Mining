@@ -44,10 +44,10 @@
     
 
   // Load the Visualization API and the piechart package.
-  google.load('visualization', '1', {'packages':['corechart']});
+  google.charts.load('visualization', 'current', {'packages':['corechart']});
 
   // Set a callback to run when the Google Visualization API is loaded.
-  google.setOnLoadCallback(displayGraph);
+  google.charts.setOnLoadCallback(displayGraph);
 
 
   function displayGraph(){
@@ -85,7 +85,12 @@
                vAxis: { title: "Index value" },
                hAxis: { title: "Year" },
                'chartArea': {left:200,'width': '100%', 'height': '80%'},
-               'legend':'top'
+               'legend':'top',
+                explorer: {
+                     maxZoomOut:1,
+                     maxZoomIn:4,
+                     keepInBounds: true
+                     }
     };
       chart.draw(data,options);
 

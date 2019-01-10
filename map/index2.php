@@ -786,7 +786,7 @@ document.getElementById("chart").innerHTML = "";
 						var ly = h-timelineYMargin-30; // 30
 						var lc = 750;
 
-						legend = g.append('g') // svg
+						/* legend = g.append('g') // svg
 								.attr('class','legend');
 
 						legend.append('rect')
@@ -826,11 +826,11 @@ document.getElementById("chart").innerHTML = "";
 								.attr('x',lc+105)
 								.attr('y',ly)
 								.attr('width',10)
-								.attr('height',10);
-						legend.append('text')
+								.attr('height',10); */
+						/* legend.append('text')
 								.attr('x',lc+120)
 								.attr('y',ly+9)
-								.text('n/a');
+								.text('n/a'); */
 							$('.i-country').text("0.6-0.8 : Highly Ready");			
 							$('.i-country-gdp').text("0.6-0.4: MOderate Ready");
 							$('.i-country-mean').text("0.4-0 : Least Ready");

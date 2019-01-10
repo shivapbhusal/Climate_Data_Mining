@@ -154,7 +154,7 @@ body {
 <body id="chart">
 
 <form action ="" method =""><center>
-<h3> ND gain vs Vulnerability <h3> 
+<h3> Co-relation between ND gain and Vulnerability <h3> 
 <h5></h5>
 <form action ="" method ="">
 

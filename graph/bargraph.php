@@ -47,10 +47,12 @@
     
 
   // Load the Visualization API and the piechart package.
-  google.load('visualization', '1', {'packages':['corechart']});
+  google.charts.load('current', {
+        'packages': ['corechart']
+      });
 
   // Set a callback to run when the Google Visualization API is loaded.
-  google.setOnLoadCallback(displayGraph);
+  google.charts.setOnLoadCallback(displayGraph);
 
 
   function displayGraph(){
@@ -86,8 +88,17 @@
                'width': 1000,
                'height': 600,
                'chartArea': {left:200,'width': '100%', 'height': '80%'},
-               'legend':'top'
+               'legend':'top',
+                vAxis: {
+                    minValue: 0
+                    },
+                explorer: {
+                     maxZoomOut:1,
+                     maxZoomIn:4,
+                     keepInBounds: true
+                     }
     };
+     
       chart.draw(data,options);
 
     }

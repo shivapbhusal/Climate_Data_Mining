@@ -154,7 +154,7 @@ body {
 
 <form action ="" method ="">
 	<center>
-<h3> Regression line for Carbon Vs Vulnerability Index <h3> 
+<h3> Scatter plot between Carbon Emission and Vulnerability Index <h3> 
 <h5></h5>
 <form action ="" method ="">
 
@@ -274,7 +274,7 @@ d3.json("data/carbon_vul_data.php?year="+year, function(error, data) {
       .attr("x", +900)
       .attr("dy", "-0.4cm")
       .style("text-anchor", "end")
-      .text("(Carbon emission in metric ton)");
+      .text("(Carbon emission)");
       //.append("text")
       //.attr("transform", "rotate(-90)")
       //.attr("x", 6)
@@ -285,7 +285,7 @@ d3.json("data/carbon_vul_data.php?year="+year, function(error, data) {
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
-    .append("text")
+      .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", ".71em")

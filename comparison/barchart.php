@@ -43,10 +43,10 @@
     
     <script type="text/javascript">
   // Load the Visualization API and the piechart package.
-  google.load('visualization', '1', {'packages':['corechart']});
+  google.charts.load('visualization', 'current', {'packages':['corechart']});
 
   // Set a callback to run when the Google Visualization API is loaded.
-  google.setOnLoadCallback(displayGraph);
+  google.charts.setOnLoadCallback(displayGraph);
 
 
   function displayGraph(){
@@ -75,13 +75,23 @@
         }
       }).responseText;
 
-     
+      var json = JSON.parse(jsonData);
       // Create our data table out of JSON data loaded from server.
-      var data = new google.visualization.DataTable(jsonData);
-
+     // json.cols[0].type = "st";
+     var data = new google.visualization.DataTable(jsonData);
+      var options  = {
+                width: 1200, 
+                height: 500,
+                explorer: {
+                    axis: 'horizontal',
+                     maxZoomOut:1,
+                     maxZoomIn:4,
+                     keepInBounds: true
+                     }
+      };
       // Instantiate and draw our chart, passing in some options.
       var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-      chart.draw(data, {width: 1200, height: 500});
+      chart.draw(data, options);
     }
 
     // Since we removed the on-load callback we need to call drawChart manually
@@ -449,7 +459,7 @@ $(document).ready(function() { $("#myIndices").select2({ width: 'resolve' }); })
 
 
 </script>
-<div id="chart_div"></div>
+<div id="chart_div" style="width: 1200px; height: 500px;"></div>
 </div>
 </div>
 </div>

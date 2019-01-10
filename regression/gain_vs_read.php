@@ -152,7 +152,7 @@ body {
 <body id="chart">
 
 <form action ="" method =""><center>
-<h3> Regression line ND gain Vs Readiness <h3> 
+<h3> Co-relation between ND gain and Readiness <h3> 
 <h5></h5>
 <form action ="" method ="">
 
