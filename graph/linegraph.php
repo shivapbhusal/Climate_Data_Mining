@@ -47,10 +47,10 @@
     
 
   // Load the Visualization API and the piechart package.
-  google.load('visualization', '1', {'packages':['corechart']});
+  google.charts.load('visualization', 'current', {'packages':['corechart']});
 
   // Set a callback to run when the Google Visualization API is loaded.
-  google.setOnLoadCallback(displayGraph);
+  google.charts.setOnLoadCallback(displayGraph);
 
 
   function displayGraph(){
@@ -86,7 +86,12 @@
                'width': 1000,
                'height': 600,
                'chartArea': {left:200,'width': '100%', 'height': '80%'},
-               'legend':'top'
+               'legend':'top',
+               explorer: {
+                     maxZoomOut:1,
+                     maxZoomIn:4,
+                     keepInBounds: true
+                     }
     };
       chart.draw(data,options);
 
@@ -151,10 +156,10 @@
                         <li><a href="../prediction/index.php">Prediction</a></li> 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Anomalies <i class="icon-angle-down"></i></a>
-                            <ul <li><a href="../anomaly/aline.php">Anomaly Scores Timeseries</a></li>
+                            <ul class="dropdown-menu">
+                                 <li><a href="../anomaly/aline.php">Anomaly Scores Timeseries</a></li>
                                 <li><a href="../anomaly/pline.php">P Value Timeseries  </a></li>
                                  <li><a href="../anomaly/countrywise_scores.php">Anomaly Scores Countrieswise  </a></li>
-                                
                             </ul>
                         </li>
                         
