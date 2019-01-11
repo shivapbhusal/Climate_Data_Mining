@@ -188,7 +188,7 @@
 
 	<div class="container">
 		<div class="header">
-			<h1 >Bar Graph of Various Indic</h1>
+			<h1 >Bar Graph of Various Indices</h1>
 			
 			<br></br>
 		</div>
@@ -422,6 +422,7 @@
               <option value= "socialfinal">Social readiness </option>
              <option value= "governancefinal">Governance readiness </option>
               <option value= "economicfinal">Economic readiness </option>
+              <option value= "carbonfinal">Carbon Emission </option>
 
             </select>
             
